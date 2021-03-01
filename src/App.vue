@@ -1,16 +1,19 @@
 <template>
-  <div id="app">
+  <div id="app" onload="mostrar()">
 
-    <div class="column is-half is-offset-one-quarter"> 
+    <div class="column is-half is-offset-one-quarter" id="conteudo"> 
       
-      <img src="../public/poke-logo.jpg" alt="">
+      <div id="imagem">
+        <img src="../public/poke-logo.jpg" alt="">
+      </div>
+
       <hr>
       <h4 id="is-size-4">Pokedex</h4>
       <input type="text" placeholder="Busque seu pokemon!" v-model="busca" class="input is-rounded">
       <button class="button is-fullwidth is-success" id="buscaBtn" @click="buscar">Buscar</button>   
-        <div v-for="(poke, index) in filteredPokemons" :key="poke.url">
+      <div v-for="(poke, index) in filteredPokemons" :key="poke.url">
         <Pokemon :name="poke.name" :url="poke.url" :num="index+1"/>
-    </div>
+      </div>
 
     </div>
 
@@ -36,7 +39,8 @@ export default {
       console.log("pegou");
       this.pokemons = res.data.results;
       console.log(this.pokemons);
-      this.filteredPkemons = res.data.results;
+      this.filteredPokemons = res.data.results;
+      this.mostrar
     })
   },
   components:{
@@ -64,6 +68,10 @@ export default {
         this.busca = this.busca.toLowerCase();
         this.filteredPokemons = this.pokemons.filter(pokemon => pokemon.name == this.busca)
       }
+      
+    },
+    mostrar: function(){
+      return this.pokemons
     }
   }
 }
