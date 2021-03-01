@@ -2,7 +2,8 @@
   <div id="app">
 
     <div class="column is-half is-offset-one-quarter"> 
-      <img src="./assets/poke-logo.jpg" alt="">
+      
+      <img src="../public/poke-logo.jpg" alt="">
       <hr>
       <h4 id="is-size-4">Pokedex</h4>
       <input type="text" placeholder="Busque seu pokemon!" v-model="busca" class="input is-rounded">
