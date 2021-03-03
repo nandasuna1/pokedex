@@ -1,15 +1,14 @@
 <template>
-  <div id="app" onload="mostrar()">
+  <div id="app" onload="mostrar()" >
 
-    <div class=" container is-desktop" id="conteudo"> 
+    <div class=" container is-desktop " id="conteudo"> 
       
-      <div id="imagem">
-        <img src="./assets/pokedex.png" alt="">
+      <div id="imagem" >
+        <img class=" is-rounded" src="./assets/pokedex.png" alt="">
       </div>
 
-      <hr>
-      <input type="text" placeholder="Busque seu pokemon!" v-model="busca" class="input is-rounded">
-      <button class="button is-fullwidth is-success" id="buscaBtn" >Buscar</button> 
+      
+      <input type="text" placeholder="Busque seu pokemon!" v-model="busca" class="input is-rounded mb-5">
 
       <div class="columns is-multiline ">
         <div v-for="(poke, index) in buscarPoke" :key="poke.url" class="column is-one-third">
