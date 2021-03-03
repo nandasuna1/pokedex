@@ -1,18 +1,20 @@
 <template>
   <div id="app" onload="mostrar()">
 
-    <div class="column is-half is-offset-one-quarter" id="conteudo"> 
+    <div class=" container is-desktop" id="conteudo"> 
       
       <div id="imagem">
-        <img src="../public/poke-logo.jpg" alt="">
+        <img src="./assets/pokedex.png" alt="">
       </div>
 
       <hr>
-      <h4 id="is-size-4">Pokedex</h4>
       <input type="text" placeholder="Busque seu pokemon!" v-model="busca" class="input is-rounded">
-      <button class="button is-fullwidth is-success" id="buscaBtn" @click="buscar">Buscar</button>   
-      <div v-for="(poke, index) in filteredPokemons" :key="poke.url">
-        <Pokemon :name="poke.name" :url="poke.url" :num="index+1"/>
+      <button class="button is-fullwidth is-success" id="buscaBtn" >Buscar</button> 
+
+      <div class="columns is-multiline ">
+        <div v-for="(poke, index) in buscarPoke" :key="poke.url" class="column is-one-third">
+          <Pokemon :name="poke.name" :url="poke.url" :num="index+1"/>
+        </div>
       </div>
 
     </div>
@@ -48,18 +50,18 @@ export default {
   },
 
   computed:{
-    /*
-    resultadoBusca: function(){
+    
+    buscarPoke: function(){
       if(this.busca == '' || this.busca == " "){
         return this.pokemons;
       }else{
-        return this.pokemons.filter(pokemon => pokemon.name == this.busca)
+        return this.pokemons.filter(pokemon => pokemon.name.includes(this.busca))
       }
 
-    }*/
+    }
   },
   methods:{
-    buscar: function(){
+    /*buscar: function(){
       this.filteredPokemons = this.pokemons;
       
       if(this.busca == '' || this.busca == " "){
@@ -69,7 +71,7 @@ export default {
         this.filteredPokemons = this.pokemons.filter(pokemon => pokemon.name == this.busca)
       }
       
-    },
+    },*/
     mostrar: function(){
       return this.pokemons
     }
