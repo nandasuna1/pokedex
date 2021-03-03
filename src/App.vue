@@ -54,7 +54,8 @@ export default {
       if(this.busca == '' || this.busca == " "){
         return this.pokemons;
       }else{
-        return this.pokemons.filter(pokemon => pokemon.name.includes(this.busca))
+
+        return this.pokemons.filter(pokemon => pokemon.name.includes(this.busca.toLowerCase()))
       }
 
     }
