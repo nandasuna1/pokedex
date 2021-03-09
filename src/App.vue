@@ -1,5 +1,5 @@
 <template>
-  <div id="app" onload="mostrar()" >
+  <div id="app"  >
 
     <div class=" container is-desktop " id="conteudo"> 
       
@@ -41,7 +41,6 @@ export default {
       this.pokemons = res.data.results;
       console.log(this.pokemons);
       this.filteredPokemons = res.data.results;
-      this.mostrar
     })
   },
   components:{
@@ -72,9 +71,7 @@ export default {
       }
       
     },*/
-    mostrar: function(){
-      return this.pokemons
-    }
+
   }
 }
 </script>
